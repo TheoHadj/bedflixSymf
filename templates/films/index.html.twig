@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des films{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/films.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des films</h1>
+
+    <form method="get" action="{{ path('app_films') }}" class="mb-4">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <select name="categorie" class="form-select">
+                    <option value="">Toutes les catégories</option>
+                    {% for categorie in categories %}
+                        <option value="{{ categorie.id }}" {% if categorie.id == selectedCategorie %}selected{% endif %}>
+                            {{ categorie.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Filtrer</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="films-container">
+        {% for film in films %}
+            <div class="film-card">
+                <img src="{{ asset('images/' ~ film.affiche) }}" alt="Affiche de {{ film.name }}">
+                <div class="film-content">
+                    <strong>{{ film.name }}</strong>
+                    <p>Durée : {{ film.duration }}</p>
+                    <p>{{ film.description }}</p>
+                    <button href="{{ film.lien }}" target="_blank" class="watch-btn">Regarder</button>
+                </div>
+            </div>
+        {% else %}
+            <p class="no-films">Aucun film disponible.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

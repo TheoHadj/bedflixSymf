@@ -1,3 +1,32 @@
 body {
-    background-color: skyblue;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffa41b !important;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffa41b !important;
+}
+
+.btn-outline-light {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: #ffa41b;
+    color: #fff;
+    border-color: #ffa41b;
 }

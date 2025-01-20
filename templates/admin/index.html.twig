@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard Admin{% endblock %}
+
+{% block body %}
+    <h1>Dashboard Admin</h1>
+    <a href="{{ path('admin_add_film') }}">Ajouter un film</a><br>
+    <a href="{{ path('admin_add_serie') }}">Ajouter une série</a>
+{% endblock %}
