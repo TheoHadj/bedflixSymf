@@ -13,12 +13,8 @@ class WebController extends AbstractController
     #[Route('/home', name: 'homepage')]
     public function index(HttpClientInterface $client): Response
     {
-        $response = $client->request(
-            'GET',
-            'https://localhost:8001/test/api', );
-
-        echo $response->getContent();
-        return $this->render('web/index.html.twig', ['response' => $response->getContent()]);
+      
+        return $this->render('web/index.html.twig');
     }
 }
 
